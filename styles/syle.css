@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sawarabi+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sawarabi+Mincho&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    width: 100%;
+    height: 10vh;
+
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(247, 244, 244);
+
+    background-color: rgb(26, 26, 26);
+}
+
+.menu h2{
+    width: 28%;
+}
+
+.list-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 30%;
+    height: 100%;
+
+    list-style: none;
+
+    font-family: 'Inter', sans-serif;
+}
+
+.list-menu li{
+    padding-bottom: 8px;
+    padding-top: 8px;
+
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.list-menu li.selected{
+    border-bottom: 2px solid #B22532;   
+}
+
+.list-menu li a {
+    text-decoration: none;
+    color: rgba(247, 244, 244, 0.712);
+}
+
+.list-menu li.selected a {
+    color: rgba(247, 244, 244, 0.993)
+}
+
+.list-menu li:hover{
+    transform: translateY(-2px);
+}
+
+.menu-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-actions a {
+    text-decoration: none;
+    color: rgb(247, 244, 244);
+
+    border-radius: 25px;
+
+    padding: 8px 30px;
+
+    transition: all .3s ease;
+}
+
+.menu-actions a.btn-enter{
+    border: 2px solid rgba(233, 233, 233, 0.651);
+}
+
+.menu-actions a.btn-enter:hover{
+    background-color: rgb(247, 244, 244);
+
+    color: rgb(26, 26, 26);
+}
+
+.menu-actions .btn-make-order{
+    border: 2px solid transparent;
+
+    background-color: #D92D3A;
+}
+
+.menu-actions .btn-make-order:hover{
+    background-color: rgb(247, 244, 244);
+    border: 2px solid #D92D3A;
+
+    color: #D92D3A;
+}
