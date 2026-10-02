@@ -1,5 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sawarabi+Mincho&display=swap');
+/* =========================
+   FONTS
+========================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sawarabi+Mincho&display=swap');
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --primary-red: #D92D3A;
+    --dark-red: #B22532;
+    --light-red: #E84A55;
+
+    --black: rgb(26, 26, 26);
+    --white: rgb(247, 244, 244);
+
+    --text-light: rgba(247, 244, 244, 0.712);
+    --text-muted: rgba(247, 244, 244, 0.8);
+    --border-light: rgba(233, 233, 233, 0.651);
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================
+   RESET
+========================= */
 
 * {
     margin: 0;
@@ -7,25 +35,43 @@
     box-sizing: border-box;
 }
 
+
+/* =========================
+   GLOBAL
+========================= */
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
 .menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 5%;
-    padding-right: 5%;
 
     width: 100%;
     height: 10vh;
 
-    font-family: 'Montserrat', sans-serif;
-    color: rgb(247, 244, 244);
+    padding-inline: 5%;
 
-    background-color: rgb(26, 26, 26);
+    color: var(--white);
+    background-color: var(--black);
 }
 
-.menu h2{
+.menu h2 {
     width: 28%;
+    font-size: 1.4rem;
 }
+
+
+/* =========================
+   MENU LIST
+========================= */
 
 .list-menu {
     display: flex;
@@ -36,34 +82,55 @@
     height: 100%;
 
     list-style: none;
-
-    font-family: 'Inter', sans-serif;
 }
 
-.list-menu li{
-    padding-bottom: 8px;
-    padding-top: 8px;
+.list-menu li {
+    padding-block: 8px;
+
+    font-size: 0.9rem;
 
     cursor: pointer;
-    transition: all .3s ease;
+
+    transition: var(--transition);
 }
 
-.list-menu li.selected{
-    border-bottom: 2px solid #B22532;   
+.list-menu li:hover {
+    transform: translateY(-2px);
 }
+
+.list-menu li.selected {
+    border-bottom: 2px solid var(--dark-red);
+    font-weight: 700;
+}
+
+.list-menu li.selected:hover {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   MENU LINKS
+========================= */
 
 .list-menu li a {
+    color: var(--text-light);
     text-decoration: none;
-    color: rgba(247, 244, 244, 0.712);
+
+    transition: var(--transition);
+}
+
+.list-menu li:hover a {
+    color: var(--white);
 }
 
 .list-menu li.selected a {
-    color: rgba(247, 244, 244, 0.993)
+    color: var(--white);
 }
 
-.list-menu li:hover{
-    transform: translateY(-2px);
-}
+
+/* =========================
+   MENU ACTIONS
+========================= */
 
 .menu-actions {
     display: flex;
@@ -71,35 +138,206 @@
 }
 
 .menu-actions a {
-    text-decoration: none;
-    color: rgb(247, 244, 244);
-
-    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     padding: 8px 30px;
 
-    transition: all .3s ease;
+    color: var(--white);
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    font-size: 0.9rem;
+
+    transition: var(--transition);
 }
 
-.menu-actions a.btn-enter{
-    border: 2px solid rgba(233, 233, 233, 0.651);
+
+/* =========================
+   ENTER BUTTON
+========================= */
+
+.menu-actions a.btn-enter {
+    border: 2px solid var(--border-light);
 }
 
-.menu-actions a.btn-enter:hover{
-    background-color: rgb(247, 244, 244);
-
-    color: rgb(26, 26, 26);
+.menu-actions a.btn-enter:hover {
+    color: var(--black);
+    background-color: var(--white);
 }
 
-.menu-actions .btn-make-order{
+
+/* =========================
+   MAKE ORDER BUTTON
+========================= */
+
+.menu-actions .btn-make-order {
     border: 2px solid transparent;
-
-    background-color: #D92D3A;
+    background-color: var(--primary-red);
 }
 
-.menu-actions .btn-make-order:hover{
-    background-color: rgb(247, 244, 244);
-    border: 2px solid #D92D3A;
+.menu-actions .btn-make-order:hover {
+    color: var(--primary-red);
+    background-color: var(--white);
+    border-color: var(--primary-red);
+}
 
-    color: #D92D3A;
+
+/* =========================
+   MAIN / HERO
+========================= */
+
+main {
+    width: 100%;
+    height: 80vh;
+
+    color: var(--white);
+
+    background-image: url("/img/imagemDeFundo1.png");
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* =========================
+   MAIN LEFT CONTENT
+========================= */
+
+main .main-left-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 55%;
+    height: 100%;
+
+    padding-left: 5%;
+
+    background: linear-gradient(
+        to right,
+        var(--black) 50%,
+        rgba(26, 26, 26, 0)
+    );
+}
+
+
+/* =========================
+   MAIN TITLE LABEL
+========================= */
+
+main .main-left-text h6 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+main .main-left-text h6::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 45px;
+    height: 2px;
+
+    background-color: var(--dark-red);
+}
+
+
+/* =========================
+   MAIN TITLE
+========================= */
+
+main .main-left-text h1 {
+    font-size: 4rem;
+}
+
+main .main-left-text h1 span {
+    color: var(--light-red);
+}
+
+
+/* =========================
+   MAIN DESCRIPTION
+========================= */
+
+main .main-left-text p {
+    color: rgba(247, 244, 244, 0.8);
+}
+
+
+/* =========================
+   MAIN ACTIONS
+========================= */
+
+.main-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding-top: 5%;
+}
+
+.main-actions a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+
+/* =========================
+   SEE MENU BUTTON
+========================= */
+
+.main-actions .btn-see-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 15px 25px;
+
+    color: var(--white);
+    background-color: var(--light-red);
+
+    border: 3px solid transparent;
+    border-radius: 30px;
+
+    transition: var(--transition);
+}
+
+.main-actions .btn-see-menu:hover {
+    color: var(--primary-red);
+    background-color: var(--white);
+
+    border-color: var(--primary-red);
+
+    box-shadow: 0 0 15px var(--dark-red);
+}
+
+
+/* =========================
+   ABOUT US BUTTON
+========================= */
+
+.main-actions .btn-about-us {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-actions .btn-about-us:hover i {
+    animation: arrowAnimation 0.7s ease-in infinite;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes arrowAnimation {
+    50% {
+        transform: translateX(5px);
+    }
 }
