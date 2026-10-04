@@ -97,6 +97,33 @@ export class Carrinho {
         this.#itens = [];
     }
 
+    restaurarItens(itensSalvos, produtoRepository) {
+
+        this.#itens = [];
+
+        itensSalvos.forEach(dados => {
+
+            const produto =
+                produtoRepository.buscarPorId(
+                    Number(dados.produtoId)
+                );
+
+            const quantidade =
+                Number(dados.quantidade);
+
+            if (!produto || quantidade < 1) {
+                return;
+            }
+
+            this.#itens.push(
+                new ItemCarrinho(
+                    produto,
+                    quantidade
+                )
+            );
+        });
+    }
+
     #encontrarItem(produtoId) {
 
         return this.#itens.find(

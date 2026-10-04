@@ -1,31 +1,22 @@
-import { initializeSlider } from "./components/slider.js";
 import { initializeProductModal } from "./components/modalProduto.js";
 import { initializeCart } from "./components/carrinho.js";
+import { initializeMenuGallery } from "./components/cardapio.js";
 
 import { Produto } from "./models/Produto.js";
 import { Carrinho } from "./models/Carrinho.js";
 import { Pedido } from "./models/Pedido.js";
 
 import { ProdutoRepository } from "./repositories/ProdutoRepository.js";
-
 import { pratos } from "./dadosPratos.js";
 
-
-// ==========================================
-// REPOSITÓRIOS
-// ==========================================
 
 const produtoRepository =
     new ProdutoRepository();
 
 
-// ==========================================
-// PRODUTOS
-// ==========================================
-
 pratos.forEach(dados => {
 
-    const produto =
+    produtoRepository.adicionar(
         new Produto(
             dados.id,
             dados.nome,
@@ -33,32 +24,23 @@ pratos.forEach(dados => {
             dados.preco,
             dados.imagem,
             dados.categoria
-        );
-
-    produtoRepository.adicionar(
-        produto
+        )
     );
 });
 
-
-// ==========================================
-// CARRINHO
-// ==========================================
 
 const carrinho =
     new Carrinho();
 
 
-// ==========================================
-// CONTADOR DO CARRINHO
-// ==========================================
-
 function atualizarContadorCarrinho() {
 
     const cartButton =
-        document.querySelector(
-            ".btn-cart"
-        );
+        document.querySelector(".btn-cart");
+
+    if (!cartButton) {
+        return;
+    }
 
     const totalItens =
         carrinho.itens.reduce(
@@ -74,59 +56,13 @@ function atualizarContadorCarrinho() {
 }
 
 
-// ==========================================
-// ADICIONAR AO CARRINHO
-// ==========================================
-
-function adicionarAoCarrinho(
-    produtoId,
-    quantidade
-) {
-
-    const produto =
-        produtoRepository.buscarPorId(
-            produtoId
-        );
-
-    if (!produto) {
-        console.error(
-            "Produto não encontrado."
-        );
-
-        return;
-    }
-
-    for (
-        let i = 0;
-        i < quantidade;
-        i++
-    ) {
-        carrinho.adicionarProduto(
-            produto
-        );
-    }
-
-    atualizarContadorCarrinho();
-
-    carrinhoUI.atualizar();
-
-    mostrarFeedback(
-        `${produto.nome} adicionado ao carrinho.`
-    );
-}
-
-
-// ==========================================
-// FEEDBACK GLOBAL
-// ==========================================
-
 function mostrarFeedback(mensagem) {
 
-    const feedback =
-        document.querySelector(".cart-feedback") ||
-        document.createElement("div");
+    let feedback =
+        document.querySelector(".cart-feedback");
 
-    if (!feedback.parentElement) {
+    if (!feedback) {
+        feedback = document.createElement("div");
         feedback.classList.add("cart-feedback");
         document.body.appendChild(feedback);
     }
@@ -142,17 +78,45 @@ function mostrarFeedback(mensagem) {
 }
 
 
-// ==========================================
-// FINALIZAR PEDIDO
-// ==========================================
+function adicionarAoCarrinho(
+    produtoId,
+    quantidade
+) {
+
+    const produto =
+        produtoRepository.buscarPorId(
+            Number(produtoId)
+        );
+
+    if (!produto) {
+        console.error("Produto não encontrado.");
+        return;
+    }
+
+    for (let i = 0; i < quantidade; i++) {
+        carrinho.adicionarProduto(produto);
+    }
+
+    atualizarContadorCarrinho();
+    carrinhoUI.atualizar();
+
+    mostrarFeedback(
+        `${produto.nome} adicionado ao carrinho.`
+    );
+}
+
 
 function finalizarPedido(tipoEntrega) {
 
     const cliente =
-        window.prompt("Digite seu nome para finalizar o pedido:");
+        window.prompt(
+            "Digite seu nome para finalizar o pedido:"
+        );
 
     if (!cliente || !cliente.trim()) {
-        mostrarFeedback("Informe seu nome para finalizar o pedido.");
+        mostrarFeedback(
+            "Informe seu nome para finalizar o pedido."
+        );
         return;
     }
 
@@ -165,7 +129,9 @@ function finalizarPedido(tipoEntrega) {
 
     const pedidosSalvos =
         JSON.parse(
-            localStorage.getItem("saborEMesa.pedidos") || "[]"
+            localStorage.getItem(
+                "saborEMesa.pedidos"
+            ) || "[]"
         );
 
     pedidosSalvos.push({
@@ -191,17 +157,21 @@ function finalizarPedido(tipoEntrega) {
     );
 
     mostrarFeedback(
-        `Pedido finalizado com sucesso! Total: ${pedido.calcularTotal().toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`
+        `Pedido finalizado com sucesso! Total: ${
+            pedido.calcularTotal().toLocaleString(
+                "pt-BR",
+                {
+                    style: "currency",
+                    currency: "BRL"
+                }
+            )
+        }`
     );
 
     carrinho.limpar();
     carrinhoUI.atualizar();
 }
 
-
-// ==========================================
-// CARRINHO UI
-// ==========================================
 
 const carrinhoUI =
     initializeCart(
@@ -211,30 +181,14 @@ const carrinhoUI =
     );
 
 
-// ==========================================
-// MODAL
-// ==========================================
-
 const modal =
     initializeProductModal(
         adicionarAoCarrinho
     );
 
 
-// ==========================================
-// SLIDER
-// ==========================================
-
-initializeSlider(
-    (produtoId) => {
-
-        const produto =
-            produtoRepository.buscarPorId(
-                produtoId
-            );
-
-        modal.open(
-            produto
-        );
-    }
+initializeMenuGallery(
+    produtoRepository.listarTodos(),
+    produto => modal.open(produto),
+    adicionarAoCarrinho
 );

@@ -13,8 +13,8 @@
         <h2>Sabor & Mesa</h2>
 
         <ul class="list-menu">
-            <li class="selected"><a href="#">Inicio</a></li>
-            <li><a href="#">Cardapio</a></li>
+            <li class="selected"><a href="./index.html">Inicio</a></li>
+            <li><a href="./cardapio.html">Cardapio</a></li>
             <li><a href="#">Sobre nós</a></li>
             <li><a href="#">Contato</a></li>
         </ul>
@@ -26,7 +26,7 @@
         </div>
     </nav>
 
-    <main>
+    <main class="main">
         <div class="main-left-text">
             <h6>BEM-VINDO AO SABOR & MESA</h6>
             <h1>Comida boa, <br> <span>todo dia.</span></h1>
@@ -36,7 +36,7 @@
                 sua experiência única.</p>
 
             <div class="main-actions">
-                <a href="#" class="btn-see-menu"> <i class="fa-solid fa-utensils"></i> Ver cardápio</a>
+                <a href="./cardapio.html" class="btn-see-menu"> <i class="fa-solid fa-utensils"></i> Ver cardápio</a>
                 <a href="" class="btn-about-us">Sobre nós <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
@@ -73,7 +73,7 @@
 
         <header>
             <h2>Nossos Pratos</h2>
-            <a href="#">Ver cardápio completo <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="./cardapio.html">Ver cardápio completo <i class="fa-solid fa-arrow-right"></i></a>
         </header>
 
         <div class="menu-highlights-slider">
@@ -299,7 +299,112 @@
 
     </div>
 
-    <aside class="cart"></aside>
+    <aside class="cart">
+        <header>
+            <h2>Seu Carrinho</h2>
+
+            <button class="cart-close" type="button" aria-label="Fechar carrinho">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </header>
+
+        <!-- FORMA DE CONSUMO -->
+        <section class="consumptionMethod">
+
+            <h3>Forma de consumo</h3>
+
+
+            <div class="consumptionOptions">
+
+                <!-- RESTAURANTE -->
+                <label class="consumptionOption active" data-method="restaurant" data-delivery-fee="0">
+
+                    <input type="radio" name="consumptionMethod" value="restaurant" checked>
+
+                    <div class="consumptionIcon">
+
+                        <i class="fa-solid fa-utensils"></i>
+
+                    </div>
+
+                    <div class="consumptionInfo">
+
+                        <strong>No restaurante</strong>
+
+                        <span>
+                            Sem taxa de entrega
+                        </span>
+
+                    </div>
+
+                    <span class="radioIndicator"></span>
+
+                </label>
+
+
+                <!-- DELIVERY -->
+                <label class="consumptionOption" data-method="delivery" data-delivery-fee="2.50">
+
+                    <input type="radio" name="consumptionMethod" value="delivery">
+
+                    <div class="consumptionIcon">
+
+                        <i class="fa-solid fa-truck"></i>
+
+                    </div>
+
+                    <div class="consumptionInfo">
+
+                        <strong>Delivery</strong>
+
+                        <span>
+                            Taxa de entrega: R$ 2,50
+                        </span>
+
+                    </div>
+
+                    <span class="radioIndicator"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+        <ul class="products-list">
+            <!-- Os itens são renderizados pelo carrinho.js -->
+        </ul>
+
+        <button class="btn-clear-cart" type="button">
+            <i class="fa-regular fa-trash-can"></i>
+            Limpar carrinho
+        </button>
+
+        <div class="description-values">
+            <div class="subtotal">
+                <h5><i class="fa-regular fa-note-sticky"></i> Subtotal</h5>
+                <span class="subtotal-value">R$ 134,60</span>
+            </div>
+
+            <div class="delivery-fee">
+                <h5><i class="fa-solid fa-truck"></i> Taxa de entrega</h5>
+                <span class="delivery-value">R$ 0,00</span>
+            </div>
+        </div>
+
+        <div class="complete-purchase">
+            <div class="text-complete-purchase">
+                <h4>Total</h4>
+
+                <span class="total-value">134,60</span>
+            </div>
+
+            <button class="btn-complete-purchase"><i class="fa-solid fa-lock"></i> Finalizar compra</button>
+        </div>
+
+    </aside>
+
+    <div class="cart-overlay"></div>
 
     <script type="module" src="../scripts/main.js"></script>
     <script src="https://kit.fontawesome.com/bf19b5ff3e.js" crossorigin="anonymous"></script>
