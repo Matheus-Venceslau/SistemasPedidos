@@ -21,8 +21,6 @@ A aplicação possui uma página inicial para apresentação do restaurante e um
 * ➖ Remoção de produtos do carrinho
 * 💰 Atualização do valor dos itens
 * 💵 Cálculo do valor total do pedido
-* 📱 Interface responsiva
-* 🌙 Suporte a tema claro e escuro
 * 🎨 Interface moderna focada na experiência do usuário
 
 ## 🛠️ Tecnologias utilizadas
