@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="PT-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabor & Mesa</title>
     <link rel="stylesheet" href="../styles/syle.css">
 </head>
+
 <body>
     <nav class="menu">
         <h2>Sabor & Mesa</h2>
@@ -19,7 +21,8 @@
 
         <div class="menu-actions">
             <a href="#" class="btn-enter">Entrar</a>
-            <a href="#" class="btn-make-order">Ver meu pedido</a>
+            <hr>
+            <a href="#" class="btn-cart"> <i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </nav>
 
@@ -29,9 +32,9 @@
             <h1>Comida boa, <br> <span>todo dia.</span></h1>
 
             <p>Sabores que fazem bem. No nosso restaurante, cada <br> prato
-            é preparado com ingredientes frescos e muito <br> carinho, para tornar
-            sua experiência única.</p>
-            
+                é preparado com ingredientes frescos e muito <br> carinho, para tornar
+                sua experiência única.</p>
+
             <div class="main-actions">
                 <a href="#" class="btn-see-menu"> <i class="fa-solid fa-utensils"></i> Ver cardápio</a>
                 <a href="" class="btn-about-us">Sobre nós <i class="fa-solid fa-arrow-right"></i></a>
@@ -39,6 +42,267 @@
         </div>
     </main>
 
+    <section class="quality-standards">
+        <div class="card-quality-standards">
+            <i class="fa-solid fa-jar-wheat"></i>
+            <h3>Ingredientes Frescos</h3>
+            <p>Selecionamos sempre o melhor para você</p>
+        </div>
+
+        <div class="card-quality-standards">
+            <i class="fa-solid fa-utensils"></i>
+            <h3>Variedade no Cardápio</h3>
+            <p>Pratos para todos os gostos e ocasiões</p>
+        </div>
+
+        <div class="card-quality-standards">
+            <i class="fa-solid fa-motorcycle"></i>
+            <h3>Entrega Rápida</h3>
+            <p>Seu pedido no conforto da sua casa</p>
+        </div>
+
+        <div class="card-quality-standards">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h3>Ambiente Aconchegante</h3>
+            <p>Uma experiência gastronômica única</p>
+        </div>
+    </section>
+
+    <section class="menu-highlights">
+        <h6>DESTAQUES DO CARDÁPIO</h6>
+
+        <header>
+            <h2>Nossos Pratos</h2>
+            <a href="#">Ver cardápio completo <i class="fa-solid fa-arrow-right"></i></a>
+        </header>
+
+        <div class="menu-highlights-slider">
+            <button class="slider-arrow slider-arrow-left" type="button">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+
+            <div class="container-cards-menu-highlights">
+
+                <div class="card-menu-highlights" data-product-id="1">
+
+                    <img src="../img/01_picanha_grelhada.jpg">
+
+                    <div class="dish-info">
+
+                        <div class="dish-text">
+
+                            <h3 class="dish-name">
+                                Picanha Grelhada
+                            </h3>
+
+                            <p class="dish-description">
+                                Arroz, feijão, salada e batata frita.
+                            </p>
+
+                        </div>
+
+                        <div class="dish-footer">
+
+                            <span class="dish-price">
+                                R$ 42,90
+                            </span>
+
+                            <button class="dish-cart" type="button">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                Adicionar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-menu-highlights" data-product-id="2">
+
+                    <img src="../img/02_macarrao_a_bolonhesa.jpg">
+
+                    <div class="dish-info">
+
+                        <div class="dish-text">
+
+                            <h3 class="dish-name">
+                                Macarrão à Bolonhesa
+                            </h3>
+
+                            <p class="dish-description">
+                                Macarrão artesanal com molho bolonhesa e queijo parmesão.
+                            </p>
+
+                        </div>
+
+                        <div class="dish-footer">
+
+                            <span class="dish-price">
+                                R$ 32,90
+                            </span>
+
+                            <button class="dish-cart" type="button">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                Adicionar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-menu-highlights" data-product-id="3">
+
+                    <img src="../img/03_hamburguer_artesanal.jpg">
+
+                    <div class="dish-info">
+
+                        <div class="dish-text">
+
+                            <h3 class="dish-name">
+                                Hambúrguer Artesanal
+                            </h3>
+
+                            <p class="dish-description">
+                                Pão artesanal, hambúrguer bovino, queijo e molho especial.
+                            </p>
+
+                        </div>
+
+                        <div class="dish-footer">
+
+                            <span class="dish-price">
+                                R$ 29,90
+                            </span>
+
+                            <button class="dish-cart" type="button">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                Adicionar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-menu-highlights" data-product-id="4">
+
+                    <img src="../img/04_frango_grelhado.jpg">
+
+                    <div class="dish-info">
+
+                        <div class="dish-text">
+
+                            <h3 class="dish-name">
+                                Frango Grelhado
+                            </h3>
+
+                            <p class="dish-description">
+                                Filé de frango grelhado, arroz, salada e legumes.
+                            </p>
+
+                        </div>
+
+                        <div class="dish-footer">
+
+                            <span class="dish-price">
+                                R$ 35,90
+                            </span>
+
+                            <button class="dish-cart" type="button">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                Adicionar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="slider-arrow slider-arrow-right" type="button">
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
+        </div>
+        <div class="slider-indicators">
+            <button class="slider-indicator active" type="button" aria-label="Slide 1"></button>
+            <button class="slider-indicator" type="button" aria-label="Slide 2"></button>
+            <button class="slider-indicator" type="button" aria-label="Slide 3"></button>
+            <button class="slider-indicator" type="button" aria-label="Slide 4"></button>
+        </div>
+    </section>
+
+    <div class="product-modal">
+
+        <div class="product-modal-content">
+
+            <button class="product-modal-close" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <img class="modal-product-image" src="" alt="">
+
+            <div class="modal-product-info">
+
+                <span class="modal-product-category">
+                    PRATO
+                </span>
+
+                <h2 class="modal-product-name"></h2>
+
+                <p class="modal-product-description"></p>
+
+                <div class="modal-product-price">
+                    <span>Preço unitário</span>
+                    <strong class="modal-unit-price"></strong>
+                </div>
+
+                <div class="modal-product-footer">
+
+                    <div class="quantity-control">
+
+                        <button class="quantity-minus" type="button">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+
+                        <span class="quantity-value">1</span>
+
+                        <button class="quantity-plus" type="button">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="modal-total">
+                        <span>Total</span>
+                        <strong class="modal-total-price"></strong>
+                    </div>
+
+                </div>
+
+                <button class="modal-add-cart" type="button">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Adicionar ao carrinho
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <aside class="cart"></aside>
+
+    <script type="module" src="../scripts/main.js"></script>
     <script src="https://kit.fontawesome.com/bf19b5ff3e.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
